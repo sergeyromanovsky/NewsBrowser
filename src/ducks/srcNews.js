@@ -25,7 +25,7 @@ const cache = {};
 
 export const getDetails = (query) => (dispatch) => {
     if (!cache[query]) {
-        handleFetch(`everything?q=${query}`)
+        handleFetch(`articles?source=${query}`)
             .then((res) => {
                 if (res.status === 'ok' && res.articles.length === 0) {
                     throw { type: 'warn', msg: 'Nothing was found' };

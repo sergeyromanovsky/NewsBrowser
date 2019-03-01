@@ -12,7 +12,7 @@ const SourceNews = ({ data, selectedId, dispatch }) => {
         dispatch(getDetails(selectedId));
     }, [selectedId]);
 
-    return <div>{data ? list(data) : 'Loading'}</div>;
+    return <div>{data && list(data)}</div>;
 };
 
 const mapStateToProps = ({ srcNews }) => ({
