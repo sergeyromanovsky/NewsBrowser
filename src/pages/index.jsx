@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import style from './style.module.scss';
+import React, { useEffect } from 'react';
 
-export default class App extends Component {
-    componentDidMount = () => {};
+import FirstPage from './FirstPage';
+import SecondPage from './SecondPage';
 
-    handleFetch = () => {};
+import { Switch, Route } from 'react-router-dom';
+import { getData } from '../ducks/main';
+import { store } from '..';
 
-    render() {
-        return <div className={style.hello}>Hell world</div>;
-    }
-}
+const App = () => {
+    useEffect(() => {
+        store.dispatch(getData());
+    }, []);
+
+    return (
+        <Switch>
+            <Route exact component={FirstPage} path="/" />
+            <Route component={SecondPage} path="/second/" />
+        </Switch>
+    );
+};
+
+export default App;

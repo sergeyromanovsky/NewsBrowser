@@ -34,6 +34,8 @@
                 "reservedFirst": ["key", "ref"]
             }
         ],
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "import/prefer-default-export": 0,
         "key-spacing": [
             "error",
             {

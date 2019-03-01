@@ -1,0 +1,51 @@
+.dimmer {
+    animation: appear 1s forwards;
+    box-shadow: 0px 1px 1px rgba(203, 209, 224, 0.3312);
+    background-color: rgba(85, 138, 253, 0.8);
+    .name {
+        display: block;
+        margin-bottom: 1.6rem;
+        padding-top: 5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .description {
+        line-height: 2rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.01em;
+        color: #fff;
+        font-weight: 400;
+        margin-bottom: 2.8rem;
+        display: block;
+        height: 10rem;
+    }
+    .links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.4rem;
+        letter-spacing: 0.01em;
+
+        .resourse {
+            color: #313147;
+            border-bottom: 1px solid #313147;
+        }
+
+        .explore {
+            background: #313147;
+            border-radius: 5px;
+            padding: 0.8rem 1.6rem;
+            color: #fff;
+        }
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

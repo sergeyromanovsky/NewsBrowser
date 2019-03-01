@@ -1,0 +1,61 @@
+.title {
+    display: block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--dropdownTitle);
+    margin-bottom: 4px;
+}
+
+:global {
+    .react-select {
+        &-container {
+            margin-bottom: 1.6rem;
+        }
+        &__placeholder {
+            font-size: 1.2rem;
+            color: #989eae !important;
+            letter-spacing: 0.01em;
+            font-weight: 400;
+        }
+        &__control {
+            min-height: 4.8rem !important;
+            background: #ffffff;
+            border: 1px solid #e5e5f2 !important;
+            border-radius: 2px !important;
+            box-shadow: none !important;
+        }
+        &__option {
+            font-size: 1.4rem !important;
+            text-transform: capitalize;
+            color: #43516d !important;
+            &--is-focused {
+                background-color: #f4f7fd !important;
+            }
+        }
+        &__multi-value {
+            border: 1px solid #558afd;
+            border-radius: 3rem !important;
+            height: 2.4rem;
+            align-items: center;
+            padding-left: 8px !important;
+            background-color: transparent !important;
+            &__label {
+                font-size: 1.2rem !important;
+                color: #558afd !important;
+                text-transform: capitalize;
+            }
+            &__remove {
+                color: #bcc5d8 !important;
+                cursor: pointer;
+                &:hover {
+                    background: none !important;
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        &__indicator-separator {
+            display: none;
+        }
+    }
+}

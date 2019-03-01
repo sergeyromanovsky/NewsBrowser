@@ -7,7 +7,7 @@ import './index.scss';
 import App from './pages';
 import configureStore from './store';
 
-const store = configureStore();
+export const store = configureStore();
 
 render(
     <Provider store={store}>

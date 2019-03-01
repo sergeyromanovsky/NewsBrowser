@@ -1,9 +1,5 @@
 export const handleFetch = (url, method, value) =>
-    fetch(`/api/${url}`, {
+    fetch(`https://newsapi.org/v2/${url}`, {
         method,
-        headers : {
-            'Content-Type' : 'application/json'
-        },
-        credentials : 'include',
-        body        : JSON.stringify(value)
+        body : JSON.stringify(value)
     }).then((res) => res.json());
