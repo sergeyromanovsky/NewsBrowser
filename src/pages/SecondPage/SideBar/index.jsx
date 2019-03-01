@@ -3,9 +3,8 @@ import style from './style.module.scss';
 
 import SourceItem from './Item';
 
-const itemList = (arr, selectedId) =>
-    arr.map((item) => <SourceItem key={item.id} isActive={item.id === selectedId} item={item} />);
+const itemList = (arr) => arr.map((item) => <SourceItem key={item.id} item={item} />);
 
-const SecondPageSidebar = ({ data, selectedId }) => <div>{itemList(data, selectedId)}</div>;
+const SecondPageSidebar = ({ data }) => <div>{itemList(data)}</div>;
 
 export default SecondPageSidebar;

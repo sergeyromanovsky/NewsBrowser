@@ -3,16 +3,19 @@ import style from './style.module.scss';
 
 import SideBarWrapper from '../../components/Layouts/SideBarWrapper';
 import SideBar from './SideBar';
+import SourceNewsList from './SourceNewsList';
 import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
 
 import { connect } from 'react-redux';
 
-const SecondPage = ({ filtered, selectedSrc }) => (
+const SecondPage = ({ filtered, match }) => (
     <section className={style.wrapper}>
         <SideBarWrapper>
-            <SideBar data={filtered} selectedId={selectedSrc.id} />
+            <SideBar data={filtered} />
         </SideBarWrapper>
-        <MainContentWrapper>asd</MainContentWrapper>
+        <MainContentWrapper>
+            <SourceNewsList selectedId={match.params.id} />
+        </MainContentWrapper>
     </section>
 );
 

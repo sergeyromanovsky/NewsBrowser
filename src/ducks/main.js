@@ -84,11 +84,7 @@ export const getNextData = (page) => (dispatch, getState) => {
 
 export const getData = () => (dispatch) =>
     // due to cors in webpack dev server
-    handleFetch(
-        `${
-            isEnvProduction ? 'https://newsapi.org/v2/' : ''
-        }sources?apiKey=3d64dc6acda34e05a4b7240069eb86ca&language=en`
-    )
+    handleFetch(`sources?language=en`)
         .then((res) => {
             if (res.status === 'ok') {
                 dispatch(getDataAction(res.sources));

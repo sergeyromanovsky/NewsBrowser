@@ -4,9 +4,7 @@ import styleItem from '../style.module.scss';
 
 import ClampLines from 'react-clamp-lines';
 
-import { store } from '../../../../..';
 import { Link } from 'react-router-dom';
-import { setSelectedSrcAction } from '../../../../../ducks/main';
 
 const Dimmer = ({ name, description, url, id }) => (
     <div className={`${style.dimmer} ${styleItem.item}`}>
@@ -23,11 +21,7 @@ const Dimmer = ({ name, description, url, id }) => (
             <a className={style.resourse} href={url} rel="noopener noreferrer" target="_blank">
                 Open Resourse
             </a>
-            <Link
-                className={style.explore}
-                to="/second"
-                onClick={() => store.dispatch(setSelectedSrcAction({ name, id }))}
-            >
+            <Link className={style.explore} to={`/second/${id}`}>
                 Explore News
             </Link>
         </div>

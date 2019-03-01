@@ -1,16 +1,14 @@
-import React, { memo } from 'react';
+import React from 'react';
 import style from './style.module.scss';
 
-import { store } from '../../../..';
-import { setSelectedSrcAction } from '../../../../ducks/main';
+import { NavLink } from 'react-router-dom';
 
-const Item = memo(({ item, isActive }) => (
-    <div
-        className={isActive ? style.active : ''}
-        onClick={() => store.dispatch(setSelectedSrcAction(item))}
-    >
-        {item.id}
+const Item = ({ item }) => (
+    <div>
+        <NavLink activeClassName={style.active} to={`/second/${item.id}`}>
+            {item.id}
+        </NavLink>
     </div>
-));
+);
 
 export default Item;

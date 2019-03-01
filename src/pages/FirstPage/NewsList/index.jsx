@@ -3,7 +3,7 @@ import style from './style.module.scss';
 
 import NewsItem from './NewsItem';
 import ReactPaginate from 'react-paginate';
-import MainContentWrapper from '../../../components/MainContentWrapper';
+import MainContentWrapper from '../../../components/Layouts/MainContentWrapper';
 
 import { getNextData } from '../../../ducks/main';
 
