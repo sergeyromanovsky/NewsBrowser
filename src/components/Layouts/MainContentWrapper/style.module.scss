@@ -1,9 +1,9 @@
 .wrapper {
-    width: 72%;
+    width: 80%;
     overflow-y: auto;
     background: var(--lightblue);
     padding: 2rem 4%;
-    height: calc(100vh - 4rem);
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }

@@ -1,0 +1,13 @@
+.wrapper {
+    padding: 0 1rem;
+    &:hover {
+        background-color: #f4f7fd;
+    }
+    .option {
+        font-weight: 500;
+        line-height: 2.6rem;
+        font-size: 1.4rem;
+        color: #43516d;
+        text-transform: capitalize;
+    }
+}

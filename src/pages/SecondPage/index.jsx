@@ -15,7 +15,7 @@ const SecondPage = ({ filtered, match, availableSorts }) => (
             <SideBar data={filtered} />
         </SideBarWrapper>
         <MainContentWrapper>
-            <Header availableSorts={availableSorts} />
+            <Header availableSorts={availableSorts} selectedId={match.params.id} />
             <SourceNewsList selectedId={match.params.id} />
         </MainContentWrapper>
     </section>

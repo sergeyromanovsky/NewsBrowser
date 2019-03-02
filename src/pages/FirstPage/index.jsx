@@ -8,6 +8,7 @@ import NewsList from './NewsList';
 import { connect } from 'react-redux';
 import { multiFilter } from '../../helpers/common';
 import { updFiltered } from '../../ducks/main';
+import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
 
 const FirstPage = ({ dispatch, initial, filters, paginated, filtered, totalPages, currPage }) => {
     useEffect(() => {
@@ -20,14 +21,18 @@ const FirstPage = ({ dispatch, initial, filters, paginated, filtered, totalPages
             <SideBarWrapper>
                 <FirstPageSideBar />
             </SideBarWrapper>
-            {filtered.length && (
-                <NewsList
-                    currPage={currPage}
-                    data={paginated}
-                    filtered={filtered}
-                    totalPages={totalPages}
-                />
-            )}
+            <MainContentWrapper>
+                {filtered.length > 0 ? (
+                    <NewsList
+                        currPage={currPage}
+                        data={paginated}
+                        filtered={filtered}
+                        totalPages={totalPages}
+                    />
+                ) : (
+                    <h3>Nothing was found </h3>
+                )}
+            </MainContentWrapper>
         </section>
     );
 };

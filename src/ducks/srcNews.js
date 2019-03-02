@@ -39,9 +39,9 @@ export const cleanSelectedNews = () => ({ type: CLEAN_UP });
 
 const cache = {};
 
-export const getDetails = (query) => (dispatch) => {
+export const getDetails = (query, sortBy = 'top') => (dispatch) => {
     if (!cache[query]) {
-        handleFetch(`articles?source=${query}`)
+        handleFetch(`articles?source=${query}&sortBy=${sortBy}`)
             .then((res) => {
                 if (res.status === 'ok' && res.articles.length === 0) {
                     throw { type: 'warn', msg: 'Nothing was found' };

@@ -12,19 +12,19 @@ const FirstPageSideBar = memo(() => (
         <h3 className={style.heading}>Filters</h3>
         <Dropdown
             change={(val) => store.dispatch(updFilters('category', val))}
-            options={categoryOptions}
+            initial={categoryOptions}
             placeholder="Select 1 or more categories"
             title="Categories"
         />
         <Dropdown
             change={(val) => store.dispatch(updFilters('lang', val))}
-            options={langOptions}
+            initial={langOptions}
             placeholder="Select 1 or more countries"
             title="Country"
         />
         <Dropdown
             change={(val) => store.dispatch(updFilters('country', val))}
-            options={countryOptions}
+            initial={countryOptions}
             placeholder="Select 1 or more languages"
             title="Language"
         />

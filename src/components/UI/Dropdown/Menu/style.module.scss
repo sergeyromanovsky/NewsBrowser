@@ -1,0 +1,12 @@
+.menu {
+    width: calc(100% + 2px);
+    border: 1px solid #e5e5f2;
+    box-sizing: border-box;
+    border-radius: 0px 0px 3px 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 5.2rem;
+    left: -1px;
+    padding: 1rem 0;
+    z-index: 10;
+}
