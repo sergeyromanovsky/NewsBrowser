@@ -1,0 +1,10 @@
+.gridWrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    @media (min-width: 1400px) {
+        grid-template-columns: repeat(3, minmax(25rem, 1fr));
+    }
+    grid-gap: 2.4rem;
+    align-content: safe center;
+}

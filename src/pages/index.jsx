@@ -7,21 +7,11 @@ import Loader from '../components/UI/Loader';
 import { Switch, Route } from 'react-router-dom';
 import { getData } from '../ducks/main';
 import { connect } from 'react-redux';
+import { dynamicImport } from '../helpers/common';
 
 // Code-splitting
-const FirstPage = lazy(() =>
-    // min delay, prevent flicker
-    Promise.all([import('./FirstPage'), new Promise((resolve) => setTimeout(resolve, 500))]).then(
-        ([moduleExports]) => moduleExports
-    )
-);
-
-const SecondPage = lazy(() =>
-    // min delay, prevent flicker
-    Promise.all([import('./SecondPage'), new Promise((resolve) => setTimeout(resolve, 500))]).then(
-        ([moduleExports]) => moduleExports
-    )
-);
+const FirstPage = lazy(() => dynamicImport('FirstPage'));
+const SecondPage = lazy(() => dynamicImport('SecondPage'));
 
 const App = ({ dispatch, notification }) => {
     useEffect(() => {

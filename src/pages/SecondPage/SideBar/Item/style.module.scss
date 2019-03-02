@@ -1,3 +1,16 @@
+.link {
+    display: block;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #43516d;
+    margin-bottom: 1.6rem;
+    text-transform: capitalize;
+    transition: all 0.3s;
+    &:hover {
+        color: var(--main);
+    }
+}
+
 .active {
-    color: red;
+    color: var(--main);
 }

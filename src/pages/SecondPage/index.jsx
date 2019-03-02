@@ -5,23 +5,26 @@ import SideBarWrapper from '../../components/Layouts/SideBarWrapper';
 import SideBar from './SideBar';
 import SourceNewsList from './SourceNewsList';
 import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
+import Header from './Header';
 
 import { connect } from 'react-redux';
 
-const SecondPage = ({ filtered, match }) => (
+const SecondPage = ({ filtered, match, availableSorts }) => (
     <section className={style.wrapper}>
         <SideBarWrapper>
             <SideBar data={filtered} />
         </SideBarWrapper>
         <MainContentWrapper>
+            <Header availableSorts={availableSorts} />
             <SourceNewsList selectedId={match.params.id} />
         </MainContentWrapper>
     </section>
 );
 
-const mapStateToProps = ({ main }) => ({
-    filtered    : main.filtered,
-    selectedSrc : main.selectedSrc
+const mapStateToProps = ({ main, srcNews }) => ({
+    filtered       : main.filtered,
+    selectedSrc    : main.selectedSrc,
+    availableSorts : srcNews.availableSorts
 });
 
 export default connect(mapStateToProps)(SecondPage);

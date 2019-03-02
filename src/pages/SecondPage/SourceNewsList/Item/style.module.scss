@@ -1,0 +1,28 @@
+.wrapper {
+    .imgWrapper {
+        margin-bottom: 1.6rem;
+        height: 16rem;
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .smallText {
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: #636262;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+    }
+    .title {
+        font-weight: 500;
+        font-size: 2rem;
+        color: #000000;
+        margin-bottom: 1.6rem;
+        transition: all 0.3s;
+        &:hover {
+            color: var(--main);
+        }
+    }
+}

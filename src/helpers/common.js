@@ -1,3 +1,6 @@
+// convert to miliseconds
+const twentyMinutes = 20 * 60 * 1000;
+
 export const getValue = (arr) => arr.map(({ value }) => value);
 
 export const multiFilter = (array, filters) => {
@@ -8,11 +11,18 @@ export const multiFilter = (array, filters) => {
         filterKeys.every((key) => {
             // ignores an empty filter
             if (!filters[key].length) return true;
-
-            const innerResult = filters[key].includes(item[key]);
-            return innerResult;
+            return filters[key].includes(item[key]);
         })
     );
 
     return result;
 };
+
+export const compareDate = () => +new Date() - localStorage.getItem('timestamp') > twentyMinutes;
+
+// min delay, prevent flicker
+export const dynamicImport = (path) =>
+    Promise.all([
+        import(`../pages/${path}`),
+        new Promise((resolve) => setTimeout(resolve, 500))
+    ]).then(([moduleExports]) => moduleExports);

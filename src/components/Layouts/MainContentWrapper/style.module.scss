@@ -4,4 +4,6 @@
     background: var(--lightblue);
     padding: 2rem 4%;
     height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
 }

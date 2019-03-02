@@ -5,8 +5,12 @@ import styleItem from '../style.module.scss';
 import ClampLines from 'react-clamp-lines';
 
 import { Link } from 'react-router-dom';
+import { store } from '../../../../..';
+import { setAvailableSorts } from '../../../../../ducks/srcNews';
 
-const Dimmer = ({ name, description, url, id }) => (
+const handleClick = (arr) => store.dispatch(setAvailableSorts(arr));
+
+const Dimmer = ({ name, description, url, id, availableSorts }) => (
     <div className={`${style.dimmer} ${styleItem.item}`}>
         <span className={`${styleItem.name} ${style.name}`}>{name}</span>
         {/* For multiline trunkating */}
@@ -21,7 +25,11 @@ const Dimmer = ({ name, description, url, id }) => (
             <a className={style.resourse} href={url} rel="noopener noreferrer" target="_blank">
                 Open Resourse
             </a>
-            <Link className={style.explore} to={`/second/${id}`}>
+            <Link
+                className={style.explore}
+                to={`/second/${id}`}
+                onClick={() => handleClick(availableSorts)}
+            >
                 Explore News
             </Link>
         </div>

@@ -24,3 +24,5 @@ export const countryOptions = [
     { value: 'it', label: 'it' },
     { value: 'us', label: 'us' }
 ];
+
+export const headerOptions = ['top', 'latest', 'popular'];

@@ -20,16 +20,13 @@ const FirstPage = ({ dispatch, initial, filters, paginated, filtered, totalPages
             <SideBarWrapper>
                 <FirstPageSideBar />
             </SideBarWrapper>
-            {filtered.length ? (
+            {filtered.length && (
                 <NewsList
                     currPage={currPage}
                     data={paginated}
-                    dispatch={dispatch}
                     filtered={filtered}
                     totalPages={totalPages}
                 />
-            ) : (
-                <div> {initial.length ? 'Nothing found' : 'Loading'}</div>
             )}
         </section>
     );

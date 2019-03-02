@@ -1,0 +1,81 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #558afd;
+    li {
+        cursor: pointer;
+        flex-shrink: 0;
+        a {
+            outline: none;
+        }
+    }
+
+    :global {
+        li:not(.nav) {
+            margin: 0 0.5rem;
+            a {
+                display: inline-block;
+                width: 2.4rem;
+                height: 2.4rem;
+                text-align: center;
+                line-height: 2.2rem;
+                border: 1px solid #558afd;
+                box-sizing: border-box;
+                border-radius: 3px;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: #558afd;
+                    color: #fff;
+                }
+            }
+        }
+        li.disabled {
+            cursor: not-allowed;
+            a,
+            svg {
+                color: #ccc;
+                path {
+                    stroke: #ccc;
+                }
+            }
+        }
+        .next,
+        .previous {
+            a {
+                display: flex;
+                align-items: center;
+
+                span {
+                    line-height: 1.2rem;
+                }
+            }
+        }
+        .previous {
+            svg {
+                margin-right: 0.8rem;
+            }
+        }
+        .next {
+            svg {
+                margin-left: 0.8rem;
+            }
+        }
+    }
+}
+.activePage {
+    a {
+        background-color: #558afd;
+        color: #fff;
+    }
+}
+
+.rightArrow {
+    transform: rotateY(180deg);
+}

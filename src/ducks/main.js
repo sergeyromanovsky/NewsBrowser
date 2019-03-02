@@ -1,23 +1,22 @@
 import { handleFetch } from '../helpers/fetch';
 import { toggleNotificationAction } from './ui';
+import { compareDate } from '../helpers/common';
 
 const GET_DATA = '[ Main ] GET DATA';
 const SET_FILTERED = '[ Main ] SET FILTERED';
 const SET_PAGINATED = '[ Main ] SET PAGINATED';
 const UPD_TOTAL_PAGES = '[ Main ] UPD TOTAL PAGES';
 const UPD_CURR_PAGE = '[ Main ] UPD CURR PAGE';
-const SET_SELECTED_SRC = '[ Main ] SET SELECTED SRC';
 
 const apiKey = '3d64dc6acda34e05a4b7240069eb86ca';
 export const perPage = 6;
 
 const initialState = {
-    initial     : [],
-    filtered    : [],
-    paginated   : [],
-    totalPages  : null,
-    currPage    : 0,
-    selectedSrc : {}
+    initial    : [],
+    filtered   : [],
+    paginated  : [],
+    totalPages : null,
+    currPage   : 0
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -48,11 +47,6 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 currPage : payload
             };
-        case SET_SELECTED_SRC:
-            return {
-                ...state,
-                selectedSrc : payload
-            };
 
         default:
             return state;
@@ -64,7 +58,6 @@ export const setFilteredAction = (payload) => ({ type: SET_FILTERED, payload });
 export const setPaginatedAction = (payload) => ({ type: SET_PAGINATED, payload });
 export const updTotalPagesAction = (payload) => ({ type: UPD_TOTAL_PAGES, payload });
 export const updCurrentPageAction = (payload) => ({ type: UPD_CURR_PAGE, payload });
-export const setSelectedSrcAction = (payload) => ({ type: SET_SELECTED_SRC, payload });
 
 export const updFiltered = (payload) => (dispatch) => {
     dispatch(setFilteredAction(payload));
@@ -83,16 +76,23 @@ export const getNextData = (page) => (dispatch, getState) => {
 // creators
 
 export const getData = () => (dispatch) =>
-    // due to cors in webpack dev server
-    handleFetch(`sources?language=en`)
-        .then((res) => {
-            if (res.status === 'ok') {
-                dispatch(getDataAction(res.sources));
-                dispatch(updFiltered(res.sources));
-            } else {
-                throw res;
-            }
-        })
-        .catch((e) =>
-            dispatch(toggleNotificationAction({ show: true, type: 'error', msg: e.message }))
-        );
+    compareDate()
+        ? // if twenty minutes past get new data, else get data from localStorage
+          handleFetch(`sources?language=en`)
+              .then((res) => {
+                  if (res.status === 'ok') {
+                      dispatch(getDataAction(res.sources));
+                      dispatch(updFiltered(res.sources));
+                      localStorage.setItem('data', JSON.stringify(res.sources));
+                      localStorage.setItem('timestamp', +new Date());
+                  } else {
+                      throw res;
+                  }
+              })
+              .catch((e) =>
+                  dispatch(toggleNotificationAction({ show: true, type: 'error', msg: e.message }))
+              )
+        : (() => {
+              dispatch(getDataAction(JSON.parse(localStorage.getItem('data'))));
+              dispatch(updFiltered(JSON.parse(localStorage.getItem('data'))));
+          })();
