@@ -6,8 +6,8 @@ import { toggleNotificationAction } from '../../../ducks/ui';
 
 const handleClick = () => store.dispatch(toggleNotificationAction(false));
 
-const Backdrop = ({ children }) => (
-    <div className={style.wrapper} onClick={handleClick}>
+const Backdrop = ({ children, click = handleClick }) => (
+    <div className={style.wrapper} onClick={click}>
         {children}
     </div>
 );

@@ -1,5 +1,6 @@
 // convert to miliseconds
 const twentyMinutes = 20 * 60 * 1000;
+export const isMobile = window.innerWidth <= 768;
 
 export const getValue = (arr) => arr.map(({ value }) => value);
 

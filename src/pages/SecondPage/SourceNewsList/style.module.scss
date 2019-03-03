@@ -7,4 +7,8 @@
     }
     grid-gap: 2.4rem;
     align-content: safe center;
+    padding-top: 4.6rem;
+    @media (max-width: 768px) {
+        padding-top: 0;
+    }
 }

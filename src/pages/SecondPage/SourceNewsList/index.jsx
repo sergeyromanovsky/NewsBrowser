@@ -11,6 +11,7 @@ const renderList = (arr) => arr.map((item) => <NewsItem key={item.url} item={ite
 const SourceNews = ({ data, selectedId, dispatch }) => {
     useEffect(() => {
         dispatch(getDetails(selectedId));
+
         return () => {
             dispatch(cleanSelectedNews());
         };

@@ -11,5 +11,8 @@
         grid-gap: 2.4rem;
         align-content: safe center;
         margin-bottom: 4rem;
+        @media (max-width: 768px) {
+            grid-auto-rows: 25rem;
+        }
     }
 }

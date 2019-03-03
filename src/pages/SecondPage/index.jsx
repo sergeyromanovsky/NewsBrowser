@@ -8,14 +8,17 @@ import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
 import Header from './Header';
 
 import { connect } from 'react-redux';
+import { isMobile } from '../../helpers/common';
 
 const SecondPage = ({ filtered, match, availableSorts }) => (
     <section className={style.wrapper}>
-        <SideBarWrapper>
+        <SideBarWrapper
+            header={<Header availableSorts={availableSorts} selectedId={match.params.id} />}
+        >
             <SideBar data={filtered} />
         </SideBarWrapper>
         <MainContentWrapper>
-            <Header availableSorts={availableSorts} selectedId={match.params.id} />
+            {!isMobile && <Header availableSorts={availableSorts} selectedId={match.params.id} />}
             <SourceNewsList selectedId={match.params.id} />
         </MainContentWrapper>
     </section>

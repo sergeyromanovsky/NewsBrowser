@@ -27,7 +27,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #45a7b9;
+    background: var(--main);
     margin: -3px 0 0 -3px;
 }
 .lds-roller div:nth-child(1) {

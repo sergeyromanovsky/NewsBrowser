@@ -44,7 +44,7 @@ export const getDetails = (query, sortBy = 'top') => (dispatch) => {
         handleFetch(`articles?source=${query}&sortBy=${sortBy}`)
             .then((res) => {
                 if (res.status === 'ok' && res.articles.length === 0) {
-                    throw { type: 'warn', msg: 'Nothing was found' };
+                    throw { type: 'warn', message: 'Nothing was found' };
                 } else if (res.status === 'ok') {
                     cache[query] = res.articles;
                     dispatch(getSelectedSrcNewsAction(res.articles));
@@ -52,9 +52,9 @@ export const getDetails = (query, sortBy = 'top') => (dispatch) => {
                     throw res;
                 }
             })
-            .catch(({ type, msg }) =>
-                dispatch(toggleNotificationAction({ show: true, type, msg }))
-            );
+            .catch(({ message, type = 'error' }) => {
+                dispatch(toggleNotificationAction({ show: true, type, msg: message }));
+            });
     } else {
         dispatch(getSelectedSrcNewsAction(cache[query]));
     }

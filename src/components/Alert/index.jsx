@@ -3,8 +3,7 @@ import style from './style.module.scss';
 
 const Alert = ({ data: { type, msg } }) => (
     <div className={style.wrapper}>
-        {type}
-        {msg}
+        <h4 className={style[type]}>{msg}</h4>
     </div>
 );
 
