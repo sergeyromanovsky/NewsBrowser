@@ -31,16 +31,38 @@
         letter-spacing: 0.01em;
 
         .resourse {
+            position: relative;
             color: #313147;
-            border-bottom: 1px solid #313147;
+            &:after {
+                display: block;
+                position: absolute;
+                content: '';
+                top: 1.8rem;
+                width: 0;
+                height: 1px;
+                background-color: #313147;
+                transition: all 0.3s;
+                will-change: width;
+            }
+            &:hover {
+                &:after {
+                    width: 100%;
+                }
+            }
         }
 
         .explore {
             cursor: pointer;
             background: #313147;
             border-radius: 5px;
+            border: 1px solid #313147;
             padding: 0.8rem 1.6rem;
             color: #fff;
+            transition: all 0.3s;
+            &:hover {
+                color: #313147;
+                background-color: transparent;
+            }
         }
     }
 }

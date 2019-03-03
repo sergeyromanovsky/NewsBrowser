@@ -25,6 +25,10 @@
             font-size: 1.6rem;
             letter-spacing: 0.01em;
             color: #43516d;
+            transition: all 0.3s;
+            &:hover {
+                color: var(--main);
+            }
         }
         @media (max-width: 768px) {
             display: none;
