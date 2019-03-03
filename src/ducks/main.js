@@ -8,7 +8,6 @@ const SET_PAGINATED = '[ Main ] SET PAGINATED';
 const UPD_TOTAL_PAGES = '[ Main ] UPD TOTAL PAGES';
 const UPD_CURR_PAGE = '[ Main ] UPD CURR PAGE';
 
-const apiKey = '3d64dc6acda34e05a4b7240069eb86ca';
 export const perPage = 6;
 
 const initialState = {

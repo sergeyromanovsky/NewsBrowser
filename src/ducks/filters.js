@@ -1,4 +1,3 @@
-import { toggleNotificationAction } from './ui';
 import { getValue } from '../helpers/common';
 import { updCurrentPageAction } from './main';
 

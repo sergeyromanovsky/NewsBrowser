@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './style.module.scss';
 
+import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
 import SideBarWrapper from '../../components/Layouts/SideBarWrapper';
 import FirstPageSideBar from './SideBar';
 import NewsList from './NewsList';
@@ -8,7 +9,6 @@ import NewsList from './NewsList';
 import { connect } from 'react-redux';
 import { multiFilter } from '../../helpers/common';
 import { updFiltered } from '../../ducks/main';
-import MainContentWrapper from '../../components/Layouts/MainContentWrapper';
 
 const FirstPage = ({ dispatch, initial, filters, paginated, filtered, totalPages, currPage }) => {
     useEffect(() => {
