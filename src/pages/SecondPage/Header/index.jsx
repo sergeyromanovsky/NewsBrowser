@@ -19,8 +19,10 @@ const Header = ({ availableSorts, selectedId }) => {
     return (
         <div className={style.wrapper}>
             <div className={style.back}>
-                <Arrow height={24} viewBox="0 0 10 10" width={24} />
-                <Link to="/">back to main page</Link>
+                <Link to="/">
+                    <Arrow height={24} viewBox="0 0 10 10" width={24} />
+                    back to main page
+                </Link>
             </div>
             <div className={style.header}>
                 <p className={style.sortBy}>Sort by :</p>

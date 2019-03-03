@@ -22,8 +22,8 @@ const Dimmer = ({ name, description, url, id, availableSorts }) => (
             text={description}
         />
         <div className={style.links}>
-            <a className={style.resourse} href={url} rel="noopener noreferrer" target="_blank">
-                Open Resourse
+            <a className={style.resource} href={url} rel="noopener noreferrer" target="_blank">
+                Open Resource
             </a>
             <Link
                 className={style.explore}

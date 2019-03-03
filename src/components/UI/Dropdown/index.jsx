@@ -4,6 +4,7 @@ import style from './style.module.scss';
 import Label from './Label';
 import Menu from './Menu';
 import Arrow from '../../../assets/arrow.svg';
+import Slide from '../../Animation/Slide';
 
 const Another = ({ initial, placeholder, change, title }) => {
     const [options, setOptions] = useState(initial);
@@ -42,7 +43,7 @@ const Another = ({ initial, placeholder, change, title }) => {
                     <span className={style.placeholder}>{placeholder}</span>
                     <Arrow className={`${style.arrow} ${showMenu ? style.isOpen : ''}`} />
                 </div>
-                {showMenu && <Menu click={handleMenuClick} options={options} />}
+                <Slide open={showMenu}>{<Menu click={handleMenuClick} options={options} />}</Slide>
             </div>
             <div className={style.labelWrapper}>
                 {selected.map((option, index) => (
